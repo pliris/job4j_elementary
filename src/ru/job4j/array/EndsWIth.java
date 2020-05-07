@@ -6,6 +6,7 @@ public class EndsWIth {
         for (int i = 0; i < post.length; i++) {
             if (word[word.length - 1 - i] != post[post.length - 1 - i]) {
                 result  = false;
+                break;
             }
         }
         // проверить. что массив word имеет последние элементы одинаковые с post
