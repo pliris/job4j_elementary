@@ -23,7 +23,6 @@ public class TurnTest {
         assertThat(result, is(expect));
         //напишите здесь тест, проверяющий переворот массива с нечётным числом элементов, например {1, 2, 3, 4, 5}.
     }
-
     @Test
     public void whenTurnArrayWithOddAmountOfElementsThenTurnedArray7Elements() {
         Turn turner = new Turn();
