@@ -14,17 +14,11 @@ public class Defragment {
                         point++;
                     }
                 }
-
-
-                // указатель, на не null ячейку.
-                // переместить первую не null ячейку
-                // Здесь нужен цикл while
             }
             System.out.print(array[index] + " ");
         }
         return array;
     }
-
     public static void main(String[] args) {
         String[] input = {"I", null, "wanna", null, "be", null, "compressed"};
         String[] compressed = compress(input);

@@ -7,7 +7,5 @@ public class ArrayLoop {
             numbers[index] = index * 2 + 3;
             System.out.println(numbers[index]);
         }
-
-
     }
 }
