@@ -1,6 +1,14 @@
 package ru.job4j.calculator;
 
 public class Calculator {
+    public double add(double first, double second) {
+        return first + second;
+    }
+
+    public double add(double first, double second, double third) {
+        return first + second + third;
+    }
+
     public static void main(String[] args) {
         int one = 1;
         int two = 2;
