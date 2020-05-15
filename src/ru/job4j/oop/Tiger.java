@@ -15,3 +15,4 @@ public class Tiger extends Predator {
         Tiger tiger = new Tiger("fedor");
     }
 }
+

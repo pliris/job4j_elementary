@@ -15,3 +15,4 @@ public class Predator extends Animal {
         Predator predator = new Predator();
     }
 }
+
