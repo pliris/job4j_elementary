@@ -9,6 +9,7 @@ public class Tiger extends Predator {
     }
     public Tiger(String n) {
         this.name = n;
+        System.out.println(name);
     }
 
     public static void main(String[] args) {

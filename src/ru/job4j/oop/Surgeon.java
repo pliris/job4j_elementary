@@ -12,22 +12,28 @@ public class Surgeon extends Doctor {
 
     @Override
     public String getName() {
+        return null;
     }
     @Override
     public String getSurname() {
+        return null;
     }
     @Override
     public String getEducation() {
+        return null;
     }
     @Override
     public Date getBirthday() {
+        return null;
     }
     @Override
     public int getExperience() {
+        return 0;
     }
     public int getSalary() {
+        return 0;
     }
     public String getSpecialization() {
-
+        return null;
     }
 }

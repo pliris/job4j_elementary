@@ -11,16 +11,21 @@ public class Doctor extends Profession {
 
     @Override
     public String getName() {
+        return null;
     }
     @Override
     public String getSurname() {
+        return null;
     }
     @Override
     public String getEducation() {
+        return null;
     }
     @Override
     public Date getBirthday() {
+        return null;
     }
     public int getExperience() {
+        return 0;
     }
 }
