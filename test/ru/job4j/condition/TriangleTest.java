@@ -26,7 +26,6 @@ public class TriangleTest {
         int out = -1;
         assertEquals(except, out, 0.01);
     }
-
     @Test
     public void whenExistThen() {
         Point ap = new Point(1, 9);
