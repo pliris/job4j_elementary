@@ -8,10 +8,7 @@ public class Shop {
         products[index] = null;
         for (int i = index; i < products.length - 1; i++) {
             products[i] = products[i + 1];
-            if ((products[i] == products[i + 1]) && (products[i] != null)) {
-                    products[i + 1] = null;
-            }
-        }
+                  }
         return products;
     }
 
