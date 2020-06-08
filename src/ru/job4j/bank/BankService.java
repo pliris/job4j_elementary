@@ -34,10 +34,12 @@ public class BankService {
         User user = null;
         List<Account> accounts = new ArrayList<>();
         user = this.findByPassport(passport);
-        accounts = users.get(user);
-        if (!accounts.contains(account)) {
-            accounts.add(account);
-            users.put(user, accounts);
+        if (user != null) {
+            accounts = users.get(user);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
+                users.put(user, accounts);
+            }
         }
     }
 
