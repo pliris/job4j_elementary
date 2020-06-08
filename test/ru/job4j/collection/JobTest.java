@@ -24,7 +24,7 @@ public class JobTest {
                 new Job("Fix bug", 1),
                 new Job("X task", 0)
         );
-        assertEquals(list, expected);
+        assertEquals(expected, list);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class JobTest {
                 new Job("Fix bug", 1),
                 new Job("Annotation", 4)
         );
-        assertEquals(list, expected);
+        assertEquals(expected, list);
     }
 
     @Test
