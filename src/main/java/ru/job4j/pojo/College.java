@@ -6,6 +6,8 @@ public class College {
         student.setFio("Nikita");
         student.setGroup("5");
         student.setReciept("01.05.2020");
-        System.out.println(student.getFio() + " "+ student.getGroup() + " " + student.getReciept());
+        System.out.println(student.getFio() + " "
+                + student.getGroup() + " "
+                + student.getReciept());
     }
 }

@@ -6,7 +6,7 @@ public class Library {
         Book bThink = new Book("Thinking in Java", 900);
         Book bHead = new Book("Head First", 600);
         Book bProf = new Book("Java Professional", 1800);
-        Book temp = new Book(null,0);
+        Book temp = new Book(null, 0);
         Book[] books = new Book[4];
         books[0] = bClean;
         books[1] = bThink;

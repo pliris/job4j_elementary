@@ -11,7 +11,8 @@ public class Matches {
         while (count > 0) {
             player++;
             System.out.println("Сколько берете спичек?");
-            if ((select = Integer.valueOf(sc.nextLine())) <= 3 & select <= count) {
+            select = Integer.valueOf(sc.nextLine());
+            if (select <= 3 & select <= count) {
                 count -= select;
                 System.out.println(count + System.lineSeparator() + "Переход хода");
             } else {
