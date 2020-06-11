@@ -1,4 +1,4 @@
-//package ru.job4j.condition;
+//package ru.ru.job4j.condition;
 //
 //public class TrgArea {
 //    private Point first;

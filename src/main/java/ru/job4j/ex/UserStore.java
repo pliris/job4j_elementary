@@ -1,4 +1,4 @@
-//package ru.job4j.ex;
+//package ru.ru.job4j.ex;
 //
 //public class UserStore {
 //
