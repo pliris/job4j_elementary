@@ -68,18 +68,20 @@ public class JobTest {
 
     @Test
     public void whenComparatorByPriorityandNameFromAToZ() {
+        Comparator<Job> cmp = new SortPriorityAtoZ().thenComparing(new SortNameAtoZ());
         List<Job> list = Arrays.asList(
                 new Job("X task", 5),
                 new Job("Fix bug", 5),
-                new Job("Fix bug", 4)
+                new Job("Fix bug", 4),
+                new Job("AAA", 1)
         );
         List<Job> expected = Arrays.asList(
+                new Job("AAA", 1),
+                new Job("Fix bug", 4),
                 new Job("Fix bug", 5),
-                new Job("X task", 5),
-                new Job("Fix bug", 4)
-
+                new Job("X task", 5)
         );
-        Collections.sort(list, new SortPriorityAtoZ().thenComparing(new SortNameAtoZ()));
+        Collections.sort(list, cmp);
         assertEquals(expected, list );
 
     }
