@@ -7,17 +7,8 @@ import java.util.*;
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
-//    private boolean checkAccount(User user, Account account) {
-//        boolean check = true;
-//        if (!account.equals(users.get(user))) {
-//            check = false;
-//        }
-//        return check;
-//    }
-
-    private boolean checkBalance(User user, String requisite, double amount) {
+    private boolean checkBalance(Account account, String requisite, double amount) {
         boolean check = false;
-        Account account = this.findByRequisite(user.getPassport(), requisite);
         if (account != null) {
             if (account.getBalance() >= amount) {
                 check = true;
@@ -68,10 +59,12 @@ public class BankService {
         boolean rsl = false;
         Account srcAccount = this.findByRequisite(srcPassport, srcRequisite);
         Account destAccount = this.findByRequisite(destPassport, destRequisite);
-        if (this.checkBalance(this.findByPassport(srcPassport), srcRequisite, amount)) {
-            destAccount.setBalance(destAccount.getBalance() + amount);
-            srcAccount.setBalance(srcAccount.getBalance() - amount);
-            rsl = true;
+        if (srcAccount != null && destAccount != null) {
+            if (this.checkBalance(srcAccount, srcRequisite, amount)) {
+                destAccount.setBalance(destAccount.getBalance() + amount);
+                srcAccount.setBalance(srcAccount.getBalance() - amount);
+                rsl = true;
+            }
         }
         return rsl;
     }
