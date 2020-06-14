@@ -2,17 +2,16 @@ package ru.job4j.array;
 
 public class Defragment {
     public static String[] compress(String[] array) {
-        int y = 0;
         for (int index = 0; index < array.length; index++) {
             if (array[index] == null) {
                 int point = index;
-                while (array[index] == null) {
-                    array[point] = array[index];
-                    array[index] = null;
-
-                    // указатель, на не null ячейку.
-                    // переместить первую не null ячейку
-                    // Здесь нужен цикл while
+                while (point < array.length) {
+                    if (array[point] != null) {
+                        array[index] = array[point];
+                        array[point] = null;
+                        break;
+                    }
+                    point++;
                 }
                 }
             System.out.print(array[index] + " ");
