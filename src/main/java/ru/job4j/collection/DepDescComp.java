@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 public class DepDescComp implements Comparator<String> {
     @Override
-    public int compare(String o1, String o2) {
+    public int compare(String first, String second) {
+        return second.compareTo(first);
 
-        return 0;
     }
 }
