@@ -1,9 +1,6 @@
 package ru.job4j.collection;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Departments {
 
@@ -21,7 +18,9 @@ public class Departments {
                 }
             }
         }
-        return new ArrayList<>(tmp);
+        List<String> list = new ArrayList<>(tmp);
+        Collections.sort(list);
+        return list;
     }
 
     public static void sortAsc(List<String> orgs) {
