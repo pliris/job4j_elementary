@@ -6,29 +6,52 @@ import java.util.function.*;
 
 public class SearchAtt {
 
-    public static List<Attachment> filterSize(List<Attachment> list) {
-        List<Attachment> rsl = new ArrayList<>();
-        for (Attachment att : list) {
-            if (att.getSize() > 100) {
-                rsl.add(att);
+
+    public static List<Attachment> filterSize(List<Attachment> list, String info) {
+        BiFunction<List<Attachment>, Attachment, List<Attachment>> function = new BiFunction<List<Attachment>, Attachment, List<Attachment>>() {
+            @Override
+            public List<Attachment> apply(List<Attachment> attachments, Attachment attachment) {
+                if (attachment.getSize() > Integer.valueOf(info)) {
+                    attachments.add(attachment);
+                }
+                return attachments;
             }
-        }
-        return rsl;
+        };
+        Supplier<String> initValue = new Supplier<String>() {
+            @Override
+            public String get() {
+                return "100";
+            }
+        };
+        return filter(function, initValue, list);
     }
 
-    public static List<Attachment> filterName(List<Attachment> list) {
-        List<Attachment> rsl = new ArrayList<>();
-        for (Attachment att : list) {
-            if (att.getName().contains("bug")) {
-                rsl.add(att);
+            public static List<Attachment> filterName(List<Attachment> list, String info) {
+                BiFunction<List<Attachment>, Attachment, List<Attachment>> function = new BiFunction<List<Attachment>, Attachment, List<Attachment>>() {
+                    @Override
+                    public List<Attachment> apply(List<Attachment> attachments, Attachment attachment) {
+                        if (attachment.getName().contains(info)) {
+                            attachments.add(attachment);
+                        }
+                        return attachments;
+                    }
+                };
+                Supplier<String> initValue = new Supplier<String>() {
+                    @Override
+                    public String get() {
+                        return "bug";
+                    }
+                };
+                return filter(function, initValue, list);
+            }
+
+            public static List<Attachment> filter(BiFunction<List<Attachment>, Attachment, List<Attachment>> function, Supplier<String> initValue, List<Attachment> list) {
+                List<Attachment> listRsl = new ArrayList<>();
+                String info = initValue.get();
+                for (Attachment att : list) {
+                    listRsl = function.apply(listRsl, att);
+                }
+                return listRsl;
             }
         }
-        return rsl;
-    }
-    public static List<Attachment> filter(BiFunction<List<Attachment>, String, List<Attachment>> function, Supplier<List<Attachment>> initValue) {
-            List<Attachment> list = initValue.get();
-            for (Attachment att : list) {
-                list = function.apply()
-            }
-    }
 }
