@@ -1,10 +1,32 @@
 package ru.job4j.search;
 
+import java.util.Objects;
+
 public class Person {
     private String name;
     private String surname;
     private String phone;
     private String address;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Person person = (Person) o;
+        return Objects.equals(name, person.name)
+                && Objects.equals(surname, person.surname)
+                && Objects.equals(phone, person.phone)
+                && Objects.equals(address, person.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, phone, address);
+    }
 
     public Person(String name, String surname, String phone, String address) {
         this.name = name;
