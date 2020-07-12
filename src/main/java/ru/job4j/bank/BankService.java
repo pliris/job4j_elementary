@@ -46,10 +46,14 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         Account account = null;
+        int index;
         User user = this.findByPassport(passport);
         if (user != null) {
             List<Account> accounts = users.get(user);
-            account = accounts.get(accounts.indexOf(new Account(requisite, -1)));
+            index = accounts.indexOf(new Account(requisite, -1));
+            if (index != -1) {
+                account = accounts.get(index);
+            }
         }
         return account;
     }
