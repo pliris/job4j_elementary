@@ -3,6 +3,9 @@ package ru.job4j.bank;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -49,12 +52,13 @@ public class BankService {
         int index;
         User user = this.findByPassport(passport);
         if (user != null) {
-            List<Account> accounts = users.get(user);
-            index = accounts.indexOf(new Account(requisite, -1));
-            if (index != -1) {
-                account = accounts.get(index);
+            List<Account> accounts = users.values().stream()
+                    .filter(a -> a.contains(requisite))
+                    .flatMap(List::stream)
+                    .collect(Collectors.toList());
+                account = accounts.get(0);
             }
-        }
+
         return account;
     }
 
