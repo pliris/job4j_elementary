@@ -13,13 +13,13 @@ public class JobTest {
     @Test
     public void whenCompatorByName() {
         Comparator<Job> sortJobNameAtoZ = new SortNameAtoZ();
-        List<Job> list = Arrays.asList(
+        List<Job> list = List.of(
                 new Job("Fix bug", 1),
                 new Job("X task", 0),
                 new Job("Annotation", 4)
         );
         Collections.sort(list, sortJobNameAtoZ);
-        List<Job> expected = Arrays.asList(
+        List<Job> expected = List.of(
                 new Job("Annotation", 4),
                 new Job("Fix bug", 1),
                 new Job("X task", 0)
@@ -30,13 +30,13 @@ public class JobTest {
     @Test
     public void whenCompatorByPrority() {
         Comparator<Job> sortJobPriorityAtoZ = new SortPriorityAtoZ();
-        List<Job> list = Arrays.asList(
+        List<Job> list = List.of(
                 new Job("Fix bug", 1),
                 new Job("X task", 0),
                 new Job("Annotation", 4)
         );
         Collections.sort(list, sortJobPriorityAtoZ);
-        List<Job> expected = Arrays.asList(
+        List<Job> expected = List.of(
                 new Job("X task", 0),
                 new Job("Fix bug", 1),
                 new Job("Annotation", 4)
@@ -69,13 +69,13 @@ public class JobTest {
     @Test
     public void whenComparatorByPriorityandNameFromAToZ() {
         Comparator<Job> cmp = new SortPriorityAtoZ().thenComparing(new SortNameAtoZ());
-        List<Job> list = Arrays.asList(
+        List<Job> list = List.of(
                 new Job("X task", 5),
                 new Job("Fix bug", 5),
                 new Job("Fix bug", 4),
                 new Job("AAA", 1)
         );
-        List<Job> expected = Arrays.asList(
+        List<Job> expected = List.of(
                 new Job("AAA", 1),
                 new Job("Fix bug", 4),
                 new Job("Fix bug", 5),
