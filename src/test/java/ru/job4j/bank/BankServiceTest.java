@@ -21,9 +21,10 @@ public class BankServiceTest {
     public void whenEnterInvalidPassport() {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
+        Optional<User> expected = Optional.empty();
         bank.addUser(user);
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
-        assertNull(bank.findByRequisite("34", "5546"));
+        assertEquals(expected, bank.findByRequisite("34", "5546"));
     }
 
     @Test

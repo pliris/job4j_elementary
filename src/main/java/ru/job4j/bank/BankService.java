@@ -33,10 +33,9 @@ public class BankService {
 
     public Optional<User> findByPassport(String passport) {
         Optional<User> currentUser = Optional.empty();
-        currentUser = Optional.ofNullable(users.keySet().stream()
+        currentUser = users.keySet().stream()
                 .filter(u -> u.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null));
+                .findFirst();
         return currentUser;
     }
 
@@ -44,10 +43,9 @@ public class BankService {
         Optional<Account> account = Optional.empty();
         Optional<User> user = this.findByPassport(passport);
         if (user.isPresent()) {
-            account = Optional.ofNullable(users.get(user.get()).stream()
+            account = users.get(user).stream()
                     .filter(a -> a.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null));
+                    .findFirst();
             }
         return account;
     }
