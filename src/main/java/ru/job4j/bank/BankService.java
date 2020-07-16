@@ -43,7 +43,7 @@ public class BankService {
         Optional<Account> account = Optional.empty();
         Optional<User> user = this.findByPassport(passport);
         if (user.isPresent()) {
-            account = users.get(user).stream()
+            account = users.get(user.get()).stream()
                     .filter(a -> a.getRequisite().equals(requisite))
                     .findFirst();
             }
