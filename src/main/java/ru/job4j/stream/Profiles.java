@@ -8,11 +8,10 @@ import java.util.stream.Collectors;
 public class Profiles {
     public static List<Address> collect(List<Profile> profiles) {
         List<Address> list = new ArrayList<>();
-        Comparator cmpAdr = new ComparatorAddress();
-        profiles.sort(cmpAdr);
+        Comparator<Address> cmpAdr = new ComparatorAddress();
         list = profiles.stream().map(
                 a -> a.getAddress()
-        ).distinct().collect(Collectors.toList());
+        ).sorted(cmpAdr).distinct().collect(Collectors.toList());
         return list;
     }
 }
